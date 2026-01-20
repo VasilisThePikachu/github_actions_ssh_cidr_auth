@@ -35,3 +35,5 @@ This will to my knowledge run on the each connection attempt to the user via SSH
 "Can i just put the output into `authorized_keys` instead of running this on every connection?"
 
 Well yes, but github themselves says these ip's come and go. So they may be out of date. If you want, another way of running this is just putting it on a timer and just piping the output straight into the `authorized_keys` files of the prefered user.
+
+There is no real error handling here so I guess you can add it on yourself and contribute it? I am not responsible if this breaks. sshd will use the usual configured auth key file if the `AuthorizedKeysCommand` fails.
