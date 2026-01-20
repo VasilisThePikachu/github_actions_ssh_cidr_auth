@@ -25,7 +25,9 @@ NOTE: Only the first entry of the authorized_keys will get the IP added to. This
 ```
 command="/usr/bin/rrsync -wo /opt/website/",restrict ssh-ed25519 AAAAC.....
 ```
+
 In this case, this forces the rrsync command to run which is there to setup restricted rsync, in this case allowing writing only and only allowing access to `/opt/website/`, `restrict` is just a shortcode for `no-agent-forwarding,no-port-forwarding,no-pty,no-user-rc,no-X11-forwarding` which I do not use in my runner script so they can go and further down restricts damage this key can do if compromised.
+
 5. Reload sshd, and try it out.
 
 This will to my knowledge run on the each connection attempt to the user via SSH. So don't put it under a popular username because it will probably spam github's API endpoint and I did not wanna bother writing a cache or something.
